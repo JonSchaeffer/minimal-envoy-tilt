@@ -3,13 +3,3 @@ kind: Simple
 name: tilt
 servers: 1
 agents: 0
-registries:
-  create:
-    name: tilt
-ports:
-  - port: 8080:8080
-    nodeFilters:
-      - loadbalancer
-  - port: 8443:443
-    nodeFilters:
-      - loadbalancer

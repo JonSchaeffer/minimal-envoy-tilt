@@ -2,7 +2,7 @@
 k8s_yaml("k8s/envoy.yaml")
 
 # Expose Envoy admin interface & service ports
-k8s_resource("envoy", port_forwards=[9901, 10000], auto_init=True)
+k8s_resource("envoy", port_forwards=['0.0.0.0:9901:9901', '0.0.0.0:10000:10000'], auto_init=True)
 
 # Load the configmap tilt extension
 load('ext://configmap', 'configmap_create')
@@ -16,5 +16,4 @@ helm_repo('stakater', 'https://stakater.github.io/stakater-charts')
 helm_resource('reloader', 'stakater/reloader', )
 
 # Define dependencies to ensure resources come up in the right order.
-k8s_resource('envoy', resource_deps=['envoy-config'])
 k8s_resource('reloader', resource_deps=['stakater'])
