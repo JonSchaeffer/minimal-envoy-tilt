@@ -2,12 +2,12 @@
 services:
   envoy:
     container_name: envoy
-    image: envoyproxy/envoy-tools:latest
+    image: envoyproxy/envoy-tools:v1.33-latest
     ports:
       - "9901:9901" # admin interface - https://www.envoyproxy.io/docs/envoy/latest/operations/admin
       - "10000:10000"
     volumes:
-      - '.:/etc/envoy/'
+      - ".:/etc/envoy/"
     entrypoint:
       - "/usr/local/bin/envoy"
       - "-c"

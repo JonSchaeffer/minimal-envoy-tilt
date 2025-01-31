@@ -15,4 +15,4 @@ export JUST_LOG := log
 set quiet := true
 
 docker-envoy:
-    docker-compose -f ./compose.yaml up envoy --remove-orphans
+    docker compose -f ./compose.yaml up envoy --remove-orphans
