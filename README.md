@@ -8,6 +8,14 @@
 
 ## Getting Started with Tilt
 
+### Quickstart
+
+1. Install the required dependencies: `brew install k3d helm tilt`
+2. Run `k3d cluster create --config k3d-cluster.yaml`
+3. Run `tilt up`
+  - You can view Tilt's web UI at `http://localhost:10350`
+4. Access envoy-tools at `http://localhost:10000` and Envoy's admin page at `http://localhost:9901`
+
 ### Required Dependencies
 
 - k3d
@@ -33,7 +41,7 @@ Provided you have the required dependencies installed and you are in the root of
 
 Note: This command only needs to be run once. If you delete the k3d containers out of Docker, do a docker purge, or docker isn't showing any containers, you will need to run the above command again.
 
-Once the k3d cluster has been created, then you can run from the mother repo's root dir:
+Once the k3d cluster has been created, then you can run from the repo's root:
 `tilt up`
 
 Note: `tilt up` can only be run from the repo's root dir.
